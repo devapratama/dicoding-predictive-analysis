@@ -12,24 +12,26 @@ Bagaimana cara memprediksi potabilitas air (layak atau tidak layak konsumsi) ber
 - World Health Organization. *Drinking-water*. [WHO Report](https://www.who.int/news-room/fact-sheets/detail/drinking-water)  
 - Badan Pusat Statistik. *Akses Rumah Tangga terhadap Air Minum*. BPS 2022. [BPS 2023](https://www.bps.go.id/id/statistics-table/2/ODU0IzI=/persentase-rumah-tangga-menurut-provinsi-tipe-daerah-dan-sumber-air-minum-layak.html)
 
-### Business Understanding
+---
 
-#### Problem Statements
+## 2. Business Understanding
+
+### Problem Statements
 1. Bagaimana cara menentukan apakah air layak konsumsi berdasarkan berbagai parameter fisikokimia?
 2. Bagaimana memprediksi kualitas air dengan akurasi yang tinggi untuk memudahkan pemantauan kualitas air?
 
-#### Goals
+### Goals
 1. Membangun model prediktif menggunakan machine learning untuk menentukan apakah air layak konsumsi atau tidak.
-2. Mengidentifikasi fitur-fitur fisikokimia yang paling berpengaruh terhadap keputusan potabilitas air.
+2. Mengidentifikasi fitur-fitur yang paling berpengaruh terhadap keputusan potabilitas air.
 
-#### Solution Statements
+### Solution Statements
 1. **Penggunaan Algoritma Random Forest, XGBoost, dan SVM** dapat digunakan untuk memprediksi potabilitas air. Ketiga algoritma ini cocok untuk dataset dengan banyak fitur dan hubungan non-linear.
 2. **Hyperparameter tuning** akan dilakukan pada model Random Forest untuk meningkatkan akurasi model dan mengurangi overfitting.
 3. **Pemilihan Model Terbaik**: Algoritma terbaik akan dipilih berdasarkan evaluasi performa menggunakan metrik yang relevan.
 
 ---
 
-## 2. Data Understanding
+## 3. Data Understanding
 
 ### Informasi Data
 Dataset yang digunakan adalah dataset kualitas air yang berisi berbagai parameter fisikokimia dari sampel air. Dataset ini dapat diunduh melalui [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Water+Quality).
@@ -82,7 +84,7 @@ Distribusi kelas `Potability` menunjukkan ketidakseimbangan yang cukup signifika
 
 ---
 
-## 3. Data Preparation
+## 4. Data Preparation
 
 Tahapan *Data Preparation* mempersiapkan dataset agar siap digunakan dalam pemodelan machine learning. Proses ini mencakup penanganan missing values, transformasi fitur, normalisasi, dan pembagian data untuk memastikan model dapat belajar secara efektif dan memberikan prediksi yang akurat.
 
@@ -125,7 +127,7 @@ Setelah normalisasi, setiap fitur memiliki rata-rata 0 dan standar deviasi 1, me
 
 #### **4. Menangani Ketidakseimbangan Data**
 
-Dataset memiliki ketidakseimbangan kelas yang signifikan, di mana kelas **`0`** (air tidak layak) jauh lebih banyak daripada kelas **`1`** (air layak). Untuk mengatasi ini, kita menggunakan **SMOTE (Synthetic Minority Over-sampling Technique)** untuk menambah jumlah sampel pada kelas minoritas, sehingga kelas menjadi lebih seimbang.
+Dataset memiliki ketidakseimbangan kelas yang signifikan, di mana kelas **`0`** (air tidak layak) jauh lebih banyak daripada kelas **`1`** (air layak). Untuk mengatasi ini, kita menggunakan **SMOTE (Synthetic Minority Over-sampling Technique) Oversampling** untuk menambah jumlah sampel pada kelas minoritas, sehingga kelas menjadi lebih seimbang.
 
 ```python
 # Menangani ketidakseimbangan kelas dengan SMOTE
@@ -133,7 +135,7 @@ smote = SMOTE(random_state=42)
 X_resampled, y_resampled = smote.fit_resample(X_scaled, y)
 ```
 
-SMOTE meningkatkan jumlah sampel kelas minoritas, membantu model untuk belajar lebih efektif dan mengurangi bias terhadap kelas mayoritas.
+SMOTE oversampling meningkatkan jumlah sampel kelas minoritas, membantu model untuk belajar lebih efektif dan mengurangi bias terhadap kelas mayoritas.
 
 #### **5. Pembagian Data**
 
@@ -148,7 +150,7 @@ Dengan pembagian ini, kita siap melatih model dan menguji kemampuannya untuk mem
 
 ---
 
-## 4. Modeling
+## 5. Modeling
 
 ### Algoritma yang Digunakan
 1. **Random Forest:** Algoritma ensemble yang membangun banyak pohon keputusan untuk meningkatkan performa prediksi dan menghindari overfitting.
