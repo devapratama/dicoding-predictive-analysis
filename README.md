@@ -169,7 +169,9 @@ Dengan pembagian ini, kita siap melatih model dan menguji kemampuannya untuk mem
 - **XGBoost:** Penggunaan parameter default dan optimasi dengan `eval_metric='logloss'`.
 - **SVM:** Diterapkan dengan kernel `rbf` untuk memisahkan data yang tidak linear.
 
-## Evaluation
+---
+
+## 6. Evaluation
 
 ### Metrik Evaluasi
 Evaluasi model dilakukan menggunakan beberapa metrik untuk menilai kinerja model:
@@ -235,7 +237,9 @@ Setelah hyperparameter tuning, model Random Forest menunjukkan performa seimbang
 ### Feature Importance
 **Feature Importance** pada model Random Forest dengan Hyperparameter Tuning menunjukkan bahwa **pH**, **Sulfate**, dan **Hardness** adalah fitur yang paling berpengaruh dalam menentukan apakah air layak konsumsi.
 
-## Kesimpulan
+---
+
+## 7. Kesimpulan
 
 Proyek ini berhasil mengembangkan model machine learning untuk memprediksi potabilitas air dengan menggunakan **Random Forest**, **XGBoost**, dan **SVM**. Hasil eksperimen menunjukkan bahwa **Random Forest** adalah model yang paling efektif dalam hal akurasi dan keseimbangan antara precision dan recall, dengan **akurasi sebesar 73%** setelah dilakukan **hyperparameter tuning**. 
 
